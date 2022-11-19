@@ -8,7 +8,7 @@ import { InterfaceName } from './parameters';
   providedIn: 'root'
 })
 export class BackendserviceService {
-  baseurl = "http://127.0.0.1:5000/"
+  baseurl = "/"
 
   constructor(private http:HttpClient) { }
 

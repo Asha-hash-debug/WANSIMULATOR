@@ -225,14 +225,16 @@ export class AppComponent implements OnInit{
             this.DC2_MPLS_selected=false;
           }
         }
+
+        setTimeout(() => {
+          this.loader=false;
+          console.log(this.loader)
+         
+          })
         
       })
     }
-    setTimeout(() => {
-      this.loader=false;
-      console.log(this.loader)
-     
-      }, 15000)
+    
 }
 
   Branch1_ISP1_Selected(val1:string,val2:string,val3:string,val4:string){

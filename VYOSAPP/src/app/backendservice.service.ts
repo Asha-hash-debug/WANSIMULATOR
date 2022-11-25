@@ -12,16 +12,14 @@ export class BackendserviceService {
 
   constructor(private http:HttpClient) { }
 
-public InterfaceStatus(interfacename:any):Observable<InterfaceName>{
-  return this.http.get<any>(this.baseurl+"trafficpolicy/"+interfacename);
-}
 
-public Parameters(interfacename:any):Observable<InterfaceName>{
-  return this.http.get<any>(this.baseurl+"parameters/"+interfacename);
+
+public InitialConfig(interfacename:any):Observable<InterfaceName>{
+  return this.http.get<any>(this.baseurl+"initial-config/"+interfacename);
 }
 
 public NetworkTraffic(User): Observable<User> {
-    return this.http.post<any>(this.baseurl+"trafficpolicy",User);
+    return this.http.post<any>(this.baseurl+"traffic-policy",User);
 }
 
 

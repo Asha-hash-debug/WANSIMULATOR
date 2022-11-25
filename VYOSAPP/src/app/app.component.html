@@ -5,302 +5,433 @@
 </div>
 
 <div class="row" *ngIf="!loader">
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(71, 60, 120);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR1 - ISP1</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">branch1_fgt port1</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="BR1_ISP1_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-            <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="BR1_ISP1_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{BR1_ISP1_delay}}</label><br>
-            <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_ISP1_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:15px;font-size:13px;">{{BR1_ISP1_loss}}</label><br>
-            <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_ISP1_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:15px;font-size:13px;">{{BR1_ISP1_OOO}}</label><br>
-            <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_ISP1_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:16px;font-size:13px;">{{BR1_ISP1_corrupt}}</label><br>
-            <ng-template [ngIf]="BR1_ISP1_submitbutton" [ngIfElse]="elseBlock">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlock>
-              <button (click)="Branch1_ISP1_Selected(BR1_ISP1_delay,BR1_ISP1_loss,BR1_ISP1_OOO,BR1_ISP1_corrupt)">SUBMIT</button>
-            </ng-template>
+    <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+      <div class="card" style="margin-top:10px;">
+        <div style="background-color:rgb(71, 60, 120);">
+          <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR1 - ISP1</h2>
+          <h4 style="color:white;font-size:13px;text-align: center;">branch1_fgt port1</h4>
+          <div style ="text-align: center;">
+              <label class="switch" style ="text-align: center;" >
+                <input type="checkbox"  [(ngModel)]="BR1_ISP1_selected">
+                <div class="slider round"></div>
+              </label>
+          </div><br>
         </div>
+         <div class="card-body" style="text-align:center;">
+          <div style="margin-left:16px;">
+            <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_ISP1_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_ISP1_delay}}</label>
+          </div>
+          <div style="margin-left:21px;">
+            <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_ISP1_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_ISP1_loss}}</label>
+          </div>
+          <div style="margin-left:24px;">
+            <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_ISP1_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_ISP1_OOO}}</label>
+          </div>
+          <div>
+            <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_ISP1_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_ISP1_corrupt}}</label>
+          </div>
+          <br>
+          <ng-template [ngIf]="BR1_ISP1_submitbutton" [ngIfElse]="elseBlockBR1_ISP1">
+            <button style="background-color:green;">SUBMIT</button>
+          </ng-template>
+          <ng-template #elseBlockBR1_ISP1>
+            <button (click)="Branch1_ISP1_Selected(BR1_ISP1_delay,BR1_ISP1_loss,BR1_ISP1_OOO,BR1_ISP1_corrupt)">SUBMIT</button>
+          </ng-template>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;" >
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(71, 60, 120);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR2 - ISP1</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">branch2_fgt port2</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="BR2_ISP1_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align:center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_ISP1_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_ISP1_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_ISP1_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_ISP1_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_ISP1_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_ISP1_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_ISP1_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_ISP1_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="BR2_ISP1_submitbutton" [ngIfElse]="elseBlockBR2_ISP1">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockBR2_ISP1>
+                <button (click)="Branch2_ISP1_Selected(BR2_ISP1_delay,BR2_ISP1_loss,BR2_ISP1_OOO,BR2_ISP1_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(71, 60, 120);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC1 - ISP1</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">dc1_fgt port3</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="DC1_ISP1_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align: center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_ISP1_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_ISP1_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_ISP1_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_ISP1_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_ISP1_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_ISP1_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_ISP1_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_ISP1_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="DC1_ISP1_submitbutton" [ngIfElse]="elseBlockDC1_ISP1">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockDC1_ISP1>
+                <button (click)="DC1_ISP1_Selected(DC1_ISP1_delay,DC1_ISP1_loss,DC1_ISP1_OOO,DC1_ISP1_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(71, 60, 120);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC2 - ISP1</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">dc2_fgt port4</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="DC2_ISP1_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align:center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_ISP1_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_ISP1_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_ISP1_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_ISP1_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_ISP1_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_ISP1_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_ISP1_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_ISP1_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="DC2_ISP1_submitbutton" [ngIfElse]="elseBlockDC2_ISP1">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockDC2_ISP1>
+                <button (click)="DC2_ISP1_Selected(DC2_ISP1_delay,DC2_ISP1_loss,DC2_ISP1_OOO,DC2_ISP1_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
 
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(71, 60, 120);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR2 - ISP1</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">branch2_fgt port2</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="BR2_ISP1_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="BR2_ISP1_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{BR2_ISP1_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_ISP1_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{BR2_ISP1_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_ISP1_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{BR2_ISP1_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_ISP1_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{BR2_ISP1_corrupt}}</label><br>
-            <ng-template [ngIf]="BR2_ISP1_submitbutton" [ngIfElse]="elseBlock">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlock>
-              <button (click)="Branch2_ISP1_Selected(BR2_ISP1_delay,BR2_ISP1_loss,BR2_ISP1_OOO,BR2_ISP1_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(71, 60, 120);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC1 - ISP1</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">dc1_fgt port3</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="DC1_ISP1_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="DC1_ISP1_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{DC1_ISP1_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_ISP1_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{DC1_ISP1_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_ISP1_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{DC1_ISP1_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_ISP1_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{DC1_ISP1_corrupt}}</label><br>
-            <ng-template [ngIf]="DC1_ISP1_submitbutton" [ngIfElse]="elseBlock">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlock>
-              <button (click)="DC1_ISP1_Selected(DC1_ISP1_delay,DC1_ISP1_loss,DC1_ISP1_OOO,DC1_ISP1_corrupt)">SUBMIT</button>
-            </ng-template>
+        
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(97, 51, 5);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR1 - ISP2</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">branch1_fgt port1</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="BR1_ISP2_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align:center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_ISP2_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_ISP2_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_ISP2_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_ISP2_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_ISP2_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_ISP2_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_ISP2_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_ISP2_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="BR1_ISP2_submitbutton" [ngIfElse]="elseBlockBR1_ISP2">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockBR1_ISP2>
+                <button (click)="Branch1_ISP2_Selected(BR1_ISP2_delay,BR1_ISP2_loss,BR1_ISP2_OOO,BR1_ISP2_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
         </div>
-    </div>
-  </div>
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;" >
+              <div class="card" style="margin-top:10px;">
+                <div style="background-color:rgb(97, 51, 5);">
+                  <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR2 - ISP2</h2>
+                  <h4 style="color:white;font-size:13px;text-align: center;">branch2_fgt port2</h4>
+                  <div style ="text-align: center;">
+                      <label class="switch" style ="text-align: center;" >
+                        <input type="checkbox"  [(ngModel)]="BR2_ISP2_selected">
+                        <div class="slider round"></div>
+                      </label>
+                  </div><br>
+                </div>
+                 <div class="card-body" style="text-align:center;">
+                  <div style="margin-left:16px;">
+                    <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_ISP2_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_ISP2_delay}}</label>
+                  </div>
+                  <div style="margin-left:21px;">
+                    <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_ISP2_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_ISP2_loss}}</label>
+                  </div>
+                  <div style="margin-left:24px;">
+                    <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_ISP2_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_ISP2_OOO}}</label>
+                  </div>
+                  <div>
+                    <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_ISP2_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_ISP2_corrupt}}</label>
+                  </div>
+                  <br>
+                  <ng-template [ngIf]="BR2_ISP2_submitbutton" [ngIfElse]="elseBlockBR2_ISP2">
+                    <button style="background-color:green;">SUBMIT</button>
+                  </ng-template>
+                  <ng-template #elseBlockBR2_ISP2>
+                    <button (click)="Branch2_ISP2_Selected(BR2_ISP2_delay,BR2_ISP2_loss,BR2_ISP2_OOO,BR2_ISP2_corrupt)">SUBMIT</button>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+         
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(97, 51, 5);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC1 - ISP2</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">dc1_fgt port3</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="DC1_ISP2_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align:center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_ISP2_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_ISP2_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_ISP2_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_ISP2_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_ISP2_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_ISP2_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_ISP2_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_ISP2_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="DC1_ISP2_submitbutton" [ngIfElse]="elseBlockDC1_ISP2">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockDC1_ISP2>
+                <button (click)="DC1_ISP2_Selected(DC1_ISP2_delay,DC1_ISP2_loss,DC1_ISP2_OOO,DC1_ISP2_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(97, 51, 5);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC2 - ISP2</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">dc2_fgt port4</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="DC2_ISP2_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align:center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_ISP2_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_ISP2_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_ISP2_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_ISP2_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_ISP2_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_ISP2_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_ISP2_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_ISP2_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="DC2_ISP2_submitbutton" [ngIfElse]="elseBlockDC2_ISP2">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockDC2_ISP2>
+                <button (click)="DC2_ISP2_Selected(DC2_ISP2_delay,DC2_ISP2_loss,DC2_ISP2_OOO,DC2_ISP2_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
 
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(71, 60, 120);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC2 - ISP1</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">dc2_fgt port4</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="DC2_ISP1_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="DC2_ISP1_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{DC2_ISP1_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_ISP1_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{DC2_ISP1_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_ISP1_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{DC2_ISP1_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_ISP1_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{DC2_ISP1_corrupt}}</label><br>
-            <ng-template [ngIf]="DC2_ISP1_submitbutton" [ngIfElse]="elseBlockDC2_ISP1">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockDC2_ISP1>
-              <button (click)="DC2_ISP1_Selected(DC2_ISP1_delay,DC2_ISP1_loss,DC2_ISP1_OOO,DC2_ISP1_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(104, 55, 76);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR1 - ISP2</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">branch1_fgt port1</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="BR1_ISP2_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-            <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="BR1_ISP2_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{BR1_ISP2_delay}}</label><br>
-            <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_ISP2_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{BR1_ISP2_loss}}</label><br>
-            <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_ISP2_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{BR1_ISP2_OOO}}</label><br>
-            <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_ISP2_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{BR1_ISP2_corrupt}}</label><br>
-            <ng-template [ngIf]="BR1_ISP2_submitbutton" [ngIfElse]="elseBlockBR1_ISP2">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockBR1_ISP2>
-              <button (click)="Branch1_ISP2_Selected(BR1_ISP2_delay,BR1_ISP2_loss,BR1_ISP2_OOO,BR1_ISP2_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
 
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(104, 55, 76);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR2 - ISP2</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">branch2_fgt port2</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="BR2_ISP2_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="BR2_ISP2_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{BR2_ISP2_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_ISP2_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{BR2_ISP2_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_ISP2_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{BR2_ISP2_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_ISP2_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{BR2_ISP2_corrupt}}</label><br>
-            <ng-template [ngIf]="BR2_ISP2_submitbutton" [ngIfElse]="elseBlockBR2_ISP2">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockBR2_ISP2>
-              <button (click)="Branch2_ISP2_Selected(BR2_ISP2_delay,BR2_ISP2_loss,BR2_ISP2_OOO,BR2_ISP2_corrupt)">SUBMIT</button>
-            </ng-template>
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(12, 107, 4);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR1 - MPLS</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">branch1_fgt port1</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="BR1_MPLS_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align:center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_MPLS_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_MPLS_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_MPLS_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_MPLS_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_MPLS_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_MPLS_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR1_MPLS_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR1_MPLS_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="BR1_MPLS_submitbutton" [ngIfElse]="elseBlockBR1_MPLS">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockBR1_MPLS>
+                <button (click)="Branch1_MPLS_Selected(BR1_MPLS_delay,BR1_MPLS_loss,BR1_MPLS_OOO,BR1_MPLS_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;" >
+              <div class="card" style="margin-top:10px;">
+                <div style="background-color:rgb(12, 107, 4);">
+                  <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR2 - MPLS</h2>
+                  <h4 style="color:white;font-size:13px;text-align: center;">branch2_fgt port2</h4>
+                  <div style ="text-align: center;">
+                      <label class="switch" style ="text-align: center;" >
+                        <input type="checkbox"  [(ngModel)]="BR2_MPLS_selected">
+                        <div class="slider round"></div>
+                      </label>
+                  </div><br>
+                </div>
+                 <div class="card-body" style="text-align:center;">
+                  <div style="margin-left:16px;">
+                    <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_MPLS_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_MPLS_delay}}</label>
+                  </div>
+                  <div style="margin-left:21px;">
+                    <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_MPLS_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_MPLS_loss}}</label>
+                  </div>
+                  <div style="margin-left:24px;">
+                    <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_MPLS_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_MPLS_OOO}}</label>
+                  </div>
+                  <div>
+                    <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="BR2_MPLS_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{BR2_MPLS_corrupt}}</label>
+                  </div>
+                  <br>
+                  <ng-template [ngIf]="BR2_MPLS_submitbutton" [ngIfElse]="elseBlockBR2_MPLS">
+                    <button style="background-color:green;">SUBMIT</button>
+                  </ng-template>
+                  <ng-template #elseBlockBR2_MPLS>
+                    <button (click)="Branch2_MPLS_Selected(BR2_MPLS_delay,BR2_MPLS_loss,BR2_MPLS_OOO,BR2_MPLS_corrupt)">SUBMIT</button>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+         
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(12, 107, 4);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC1 - MPLS</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">dc1_fgt port3</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="DC1_MPLS_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align:center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_MPLS_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_MPLS_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_MPLS_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_MPLS_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_MPLS_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_MPLS_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC1_MPLS_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC1_MPLS_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="DC1_MPLS_submitbutton" [ngIfElse]="elseBlockDC1_MPLS">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockDC1_MPLS>
+                <button (click)="DC1_MPLS_Selected(DC1_MPLS_delay,DC1_MPLS_loss,DC1_MPLS_OOO,DC1_MPLS_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3" style="padding: 0px;">
+          <div class="card" style="margin-top:10px;">
+            <div style="background-color:rgb(12, 107, 4);">
+              <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC2 - MPLS</h2>
+              <h4 style="color:white;font-size:13px;text-align: center;">dc2_fgt port4</h4>
+              <div style ="text-align: center;">
+                  <label class="switch" style ="text-align: center;" >
+                    <input type="checkbox"  [(ngModel)]="DC2_MPLS_selected">
+                    <div class="slider round"></div>
+                  </label>
+              </div><br>
+            </div>
+             <div class="card-body" style="text-align:center;">
+              <div style="margin-left:16px;">
+                <span>DELAY</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="500" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_MPLS_delay"><label>500</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_MPLS_delay}}</label>
+              </div>
+              <div style="margin-left:21px;">
+                <span>LOSS</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_MPLS_loss"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_MPLS_loss}}</label>
+              </div>
+              <div style="margin-left:24px;">
+                <span>OOO</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_MPLS_OOO"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_MPLS_OOO}}</label>
+              </div>
+              <div>
+                <span>CORRUPT</span><label style="margin-left:13px;padding-right: 2px;">0</label><input type="range" min="0" max="100" step="5" style="height:2px;width:80px;" [(ngModel)]="DC2_MPLS_corrupt"><label>100</label><label style="color: rgb(9, 9, 244);margin-left:1px;margin-top:20px;font-size:12px;">{{DC2_MPLS_corrupt}}</label>
+              </div>
+              <br>
+              <ng-template [ngIf]="DC2_MPLS_submitbutton" [ngIfElse]="elseBlockDC2_MPLS">
+                <button style="background-color:green;">SUBMIT</button>
+              </ng-template>
+              <ng-template #elseBlockDC2_MPLS>
+                <button (click)="DC2_MPLS_Selected(DC2_MPLS_delay,DC2_MPLS_loss,DC2_MPLS_OOO,DC2_MPLS_corrupt)">SUBMIT</button>
+              </ng-template>
+            </div>
+          </div>
         </div>
     </div>
-  </div>
-
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(104, 55, 76);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC1 - ISP2</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">dc1_fgt port3</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="DC1_ISP2_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="DC1_ISP2_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{DC1_ISP2_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_ISP2_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{DC1_ISP2_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_ISP2_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{DC1_ISP2_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_ISP2_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{DC1_ISP2_corrupt}}</label><br>
-            <ng-template [ngIf]="DC1_ISP2_submitbutton" [ngIfElse]="elseBlockDC1_ISP2">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockDC1_ISP2>
-              <button (click)="DC1_ISP2_Selected(DC1_ISP2_delay,DC1_ISP2_loss,DC1_ISP2_OOO,DC1_ISP2_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(104, 55, 76);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC2 - ISP2</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">dc2_fgt port4</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="DC2_ISP2_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="DC2_ISP2_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{DC2_ISP2_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_ISP2_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{DC2_ISP2_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_ISP2_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{DC2_ISP2_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_ISP2_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{DC2_ISP2_corrupt}}</label><br>
-            <ng-template [ngIf]="DC2_ISP2_submitbutton" [ngIfElse]="elseBlockDC2_ISP2">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockDC2_ISP2>
-              <button (click)="DC2_ISP2_Selected(DC2_ISP2_delay,DC2_ISP2_loss,DC2_ISP2_OOO,DC2_ISP2_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(3, 92, 7);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR1 - MPLS</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">branch1_fgt port1</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="BR1_MPLS_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-            <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="BR1_MPLS_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{BR1_MPLS_delay}}</label><br>
-            <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_MPLS_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{BR1_MPLS_loss}}</label><br>
-            <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_MPLS_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{BR1_MPLS_OOO}}</label><br>
-            <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR1_MPLS_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{BR1_MPLS_corrupt}}</label><br>
-            <ng-template [ngIf]="BR1_MPLS_submitbutton" [ngIfElse]="elseBlockBR1_MPLS">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockBR1_MPLS>
-              <button (click)="Branch1_MPLS_Selected(BR1_MPLS_delay,BR1_MPLS_loss,BR1_MPLS_OOO,BR1_MPLS_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(3, 92, 7);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">BR2 - MPLS</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">branch2_fgt port2</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="BR2_MPLS_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="BR2_MPLS_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{BR2_MPLS_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_MPLS_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{BR2_MPLS_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_MPLS_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{BR2_MPLS_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="BR2_MPLS_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{BR2_MPLS_corrupt}}</label><br>
-            <ng-template [ngIf]="BR2_MPLS_submitbutton" [ngIfElse]="elseBlockBR2_MPLS">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockBR2_MPLS>
-              <button (click)="Branch2_MPLS_Selected(BR2_MPLS_delay,BR2_MPLS_loss,BR2_MPLS_OOO,BR2_MPLS_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(3, 92, 7);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC1 - MPLS</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">dc1_fgt port3</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="DC1_MPLS_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="DC1_MPLS_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{DC1_MPLS_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_MPLS_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{DC1_MPLS_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_MPLS_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{DC1_MPLS_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC1_MPLS_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{DC1_MPLS_corrupt}}</label><br>
-            <ng-template [ngIf]="DC1_MPLS_submitbutton" [ngIfElse]="elseBlockDC1_MPLS">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockDC1_MPLS>
-              <button (click)="DC1_MPLS_Selected(DC1_MPLS_delay,DC1_MPLS_loss,DC1_MPLS_OOO,DC1_MPLS_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="card" style="margin-top:10px;">
-      <div style="background-color:rgb(3, 92, 7);">
-        <h2 style="color:white;font-size:17px;margin: 0px;text-align: center;">DC2 - MPLS</h2>
-        <h4 style="color:white;font-size:13px;text-align: center;">dc2_fgt port4</h4>
-        <label class="switch">
-          <input type="checkbox"  [(ngModel)]="DC2_MPLS_selected">
-          <div class="slider round"></div>
-        </label><br><br>
-      </div>
-       <div class="card-body" style="padding-left:4px;">
-        <span>DELAY</span><label style="padding-left: 16px;">0ms</label><input type="range" min="0" max="500" step="5" [(ngModel)]="DC2_MPLS_delay"><label>500ms </label><label style="color: rgb(9, 9, 244);margin:4px;margin-left:10px;margin-top:20px;font-size:13px;">{{DC2_MPLS_delay}}</label><br>
-        <span>LOSS</span><label style="padding-left: 29px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_MPLS_loss"><label>100% </label><label style="color: rgb(9, 9, 244);margin:12px;margin-top:20px;margin-left:18px;font-size:13px;">{{DC2_MPLS_loss}}</label><br>
-        <span>OOO</span><label style="padding-left: 32px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_MPLS_OOO"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:19px;font-size:13px;">{{DC2_MPLS_OOO}}</label><br>
-        <span>CORRUPT </span><label style="padding-left: 0px;">0%</label><input type="range" min="0" max="100" step="5" [(ngModel)]="DC2_MPLS_corrupt"><label>100% </label><label style="color: rgb(9, 9, 244);margin:10px;margin-left:17px;font-size:13px;">{{DC2_MPLS_corrupt}}</label><br>
-            <ng-template [ngIf]="DC2_MPLS_submitbutton" [ngIfElse]="elseBlockDC2_MPLS">
-              <button style="background-color:green;">SUBMIT</button>
-            </ng-template>
-            <ng-template #elseBlockDC2_MPLS>
-              <button (click)="DC2_MPLS_Selected(DC2_MPLS_delay,DC2_MPLS_loss,DC2_MPLS_OOO,DC2_MPLS_corrupt)">SUBMIT</button>
-            </ng-template>
-        </div>
-    </div>
-  </div>
-</div>
+            
+  

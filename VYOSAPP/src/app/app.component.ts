@@ -1,4 +1,3 @@
-import { EventListenerFocusTrapInertStrategy } from '@angular/cdk/a11y';
 import { Component, OnInit } from '@angular/core';
 import { SelectMultipleControlValueAccessor } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -92,6 +91,20 @@ export class AppComponent implements OnInit{
   interfacestatus:any;
   parameters:any;
   interfacestatuscount:number=0;
+  BR1_ISP1_disable:any;
+  BR2_ISP1_disable:any;
+  DC1_ISP1_disable:any;
+  DC2_ISP1_disable:any;
+
+  BR1_ISP2_disable:any;
+  BR2_ISP2_disable:any;
+  DC1_ISP2_disable:any;
+  DC2_ISP2_disable:any;
+
+  BR1_MPLS_disable:any;
+  BR2_MPLS_disable:any;
+  DC1_MPLS_disable:any;
+  DC2_MPLS_disable:any;
   
 
   constructor(private backendservice:BackendserviceService,private _router:Router){}
@@ -106,120 +119,141 @@ export class AppComponent implements OnInit{
       this.parameters=response;
       console.log(i)
       console.log(this.parameters)
-      console.log(this.parameters[0])
-      console.log(this.parameters[1])
-      if (i=="BR1_ISP1"){
-        this.BR1_ISP1_delay=this.parameters[1]["network-delay"]
-        this.BR1_ISP1_loss=this.parameters[1]["packet-loss"]
-        this.BR1_ISP1_OOO="000"
-        this.BR1_ISP1_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-            this.BR1_ISP1_selected=false; 
+
+      if (this.parameters == "0"){
+        if(i == "BR1_ISP1"){this.BR1_ISP1_disable = "True"};
+        if(i == "BR2_ISP1"){this.BR2_ISP1_disable = "True"};
+        if(i == "DC1_ISP1"){this.DC1_ISP1_disable = "True"};
+        if(i == "DC2_ISP1"){this.DC2_ISP1_disable = "True"};
+
+        if(i == "BR1_ISP2"){this.BR1_ISP2_disable = "True"};
+        if(i == "BR2_ISP2"){this.BR2_ISP2_disable = "True"};
+        if(i == "DC1_ISP2"){this.DC1_ISP2_disable = "True"};
+        if(i == "DC2_ISP2"){this.DC2_ISP2_disable = "True"};
+        
+        if(i == "BR1_MPLS"){this.BR1_MPLS_disable = "True"};
+        if(i == "BR2_MPLS"){this.BR2_MPLS_disable = "True"};
+        if(i == "DC1_MPLS"){this.DC1_MPLS_disable = "True"};
+        if(i == "DC2_MPLS"){this.DC2_MPLS_disable = "True"};
+      }
+
+      else{
+    
+        console.log(this.parameters[0])
+        console.log(this.parameters[1])
+        if (i=="BR1_ISP1"){
+          this.BR1_ISP1_delay=this.parameters[1]["network-delay"]
+          this.BR1_ISP1_loss=this.parameters[1]["packet-loss"]
+          this.BR1_ISP1_OOO="000"
+          this.BR1_ISP1_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+              this.BR1_ISP1_selected=false; 
+            }
+          }
+        else if (i=="BR2_ISP1"){
+          this.BR2_ISP1_delay=this.parameters[1]["network-delay"]
+          this.BR2_ISP1_loss=this.parameters[1]["packet-loss"]
+          this.BR2_ISP1_OOO="000"
+          this.BR2_ISP1_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.BR2_ISP1_selected=false; 
           }
         }
-      else if (i=="BR2_ISP1"){
-        this.BR2_ISP1_delay=this.parameters[1]["network-delay"]
-        this.BR2_ISP1_loss=this.parameters[1]["packet-loss"]
-        this.BR2_ISP1_OOO="000"
-        this.BR2_ISP1_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.BR2_ISP1_selected=false; 
+        else if (i=="DC1_ISP1"){
+          this.DC1_ISP1_delay=this.parameters[1]["network-delay"]
+          this.DC1_ISP1_loss=this.parameters[1]["packet-loss"]
+          this.DC1_ISP1_OOO="000"
+          this.DC1_ISP1_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.DC1_ISP1_selected=false; 
+          }
         }
-      }
-      else if (i=="DC1_ISP1"){
-        this.DC1_ISP1_delay=this.parameters[1]["network-delay"]
-        this.DC1_ISP1_loss=this.parameters[1]["packet-loss"]
-        this.DC1_ISP1_OOO="000"
-        this.DC1_ISP1_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.DC1_ISP1_selected=false; 
+        else if (i=="DC2_ISP1"){
+          this.DC2_ISP1_delay=this.parameters[1]["network-delay"]
+          this.DC2_ISP1_loss=this.parameters[1]["packet-loss"]
+          this.DC2_ISP1_OOO="000"
+          this.DC2_ISP1_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.DC2_ISP1_selected=false; 
+          }
         }
-      }
-      else if (i=="DC2_ISP1"){
-        this.DC2_ISP1_delay=this.parameters[1]["network-delay"]
-        this.DC2_ISP1_loss=this.parameters[1]["packet-loss"]
-        this.DC2_ISP1_OOO="000"
-        this.DC2_ISP1_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.DC2_ISP1_selected=false; 
-        }
-      }
 
-      else if (i=="BR1_ISP2"){
-        this.BR1_ISP2_delay=this.parameters[1]["network-delay"]
-        this.BR1_ISP2_loss=this.parameters[1]["packet-loss"]
-        this.BR1_ISP2_OOO="000"
-        this.BR1_ISP2_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.BR1_ISP2_selected=false; 
+        else if (i=="BR1_ISP2"){
+          this.BR1_ISP2_delay=this.parameters[1]["network-delay"]
+          this.BR1_ISP2_loss=this.parameters[1]["packet-loss"]
+          this.BR1_ISP2_OOO="000"
+          this.BR1_ISP2_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.BR1_ISP2_selected=false; 
+          }
         }
-      }
-      else if (i=="BR2_ISP2"){
-        this.BR2_ISP2_delay=this.parameters[1]["network-delay"]
-        this.BR2_ISP2_loss=this.parameters[1]["packet-loss"]
-        this.BR2_ISP2_OOO="000"
-        this.BR2_ISP2_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.BR2_ISP2_selected=false; 
+        else if (i=="BR2_ISP2"){
+          this.BR2_ISP2_delay=this.parameters[1]["network-delay"]
+          this.BR2_ISP2_loss=this.parameters[1]["packet-loss"]
+          this.BR2_ISP2_OOO="000"
+          this.BR2_ISP2_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.BR2_ISP2_selected=false; 
+          }
         }
-      }
-      else if (i=="DC1_ISP2"){
-        this.DC1_ISP2_delay=this.parameters[1]["network-delay"]
-        this.DC1_ISP2_loss=this.parameters[1]["packet-loss"]
-        this.DC1_ISP2_OOO="000"
-        this.DC1_ISP2_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.DC1_ISP2_selected=false; 
+        else if (i=="DC1_ISP2"){
+          this.DC1_ISP2_delay=this.parameters[1]["network-delay"]
+          this.DC1_ISP2_loss=this.parameters[1]["packet-loss"]
+          this.DC1_ISP2_OOO="000"
+          this.DC1_ISP2_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.DC1_ISP2_selected=false; 
+          }
         }
-      }
-      else if (i=="DC2_ISP2"){
-        this.DC2_ISP2_delay=this.parameters[1]["network-delay"]
-        this.DC2_ISP2_loss=this.parameters[1]["packet-loss"]
-        this.DC2_ISP2_OOO="000"
-        this.DC2_ISP2_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.DC2_ISP2_selected=false; 
+        else if (i=="DC2_ISP2"){
+          this.DC2_ISP2_delay=this.parameters[1]["network-delay"]
+          this.DC2_ISP2_loss=this.parameters[1]["packet-loss"]
+          this.DC2_ISP2_OOO="000"
+          this.DC2_ISP2_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.DC2_ISP2_selected=false; 
+          }
         }
-      }
 
-      else if (i=="BR1_MPLS"){
-        this.BR1_MPLS_delay=this.parameters[1]["network-delay"]
-        this.BR1_MPLS_loss=this.parameters[1]["packet-loss"]
-        this.BR1_MPLS_OOO="000"
-        this.BR1_MPLS_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.BR1_MPLS_selected=false; 
+        else if (i=="BR1_MPLS"){
+          this.BR1_MPLS_delay=this.parameters[1]["network-delay"]
+          this.BR1_MPLS_loss=this.parameters[1]["packet-loss"]
+          this.BR1_MPLS_OOO="000"
+          this.BR1_MPLS_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.BR1_MPLS_selected=false; 
+          }
         }
-      }
-      else if (i=="BR2_MPLS"){
-        this.BR2_MPLS_delay=this.parameters[1]["network-delay"]
-        this.BR2_MPLS_loss=this.parameters[1]["packet-loss"]
-        this.BR2_MPLS_OOO="000"
-        this.BR2_MPLS_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.BR2_MPLS_selected=false; 
+        else if (i=="BR2_MPLS"){
+          this.BR2_MPLS_delay=this.parameters[1]["network-delay"]
+          this.BR2_MPLS_loss=this.parameters[1]["packet-loss"]
+          this.BR2_MPLS_OOO="000"
+          this.BR2_MPLS_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.BR2_MPLS_selected=false; 
+          }
         }
-      }
-      else if (i=="DC1_MPLS"){
-        this.DC1_MPLS_delay=this.parameters[1]["network-delay"]
-        this.DC1_MPLS_loss=this.parameters[1]["packet-loss"]
-        this.DC1_MPLS_OOO="000"
-        this.DC1_MPLS_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.DC1_MPLS_selected=false; 
+        else if (i=="DC1_MPLS"){
+          this.DC1_MPLS_delay=this.parameters[1]["network-delay"]
+          this.DC1_MPLS_loss=this.parameters[1]["packet-loss"]
+          this.DC1_MPLS_OOO="000"
+          this.DC1_MPLS_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.DC1_MPLS_selected=false; 
+          }
         }
-      }
-      else if (i=="DC2_MPLS"){
-        this.DC2_MPLS_delay=this.parameters[1]["network-delay"]
-        this.DC2_MPLS_loss=this.parameters[1]["packet-loss"]
-        this.DC2_MPLS_OOO="000"
-        this.DC2_MPLS_corrupt="000"
-        if (this.parameters[0]=="DOWN"){
-          this.DC2_MPLS_selected=false; 
+        else if (i=="DC2_MPLS"){
+          this.DC2_MPLS_delay=this.parameters[1]["network-delay"]
+          this.DC2_MPLS_loss=this.parameters[1]["packet-loss"]
+          this.DC2_MPLS_OOO="000"
+          this.DC2_MPLS_corrupt="000"
+          if (this.parameters[0]=="DOWN"){
+            this.DC2_MPLS_selected=false; 
+          }
         }
-      }
+        }
 
-      if (this.interfacestatuscount==12) {
+        if (this.interfacestatuscount==12) {
           this.loader=false;
           console.log(this.loader)
           console.log(this.interfacestatuscount)

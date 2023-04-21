@@ -3,6 +3,7 @@ from flask_cors import CORS, cross_origin
 import requests
 import json
 from urllib3.exceptions import InsecureRequestWarning
+from datetime import datetime
 
 #  disable warnings in requests for cert bypass
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -89,6 +90,7 @@ def get(interfacename):
                }
     headers = {}
     dict = {}
+
     try:
         response = requests.request("POST", parametersurl, headers=headers, data=payload, verify=False)
         print(f'{response.status_code} - traffic {interface} {policyname}')
@@ -105,13 +107,16 @@ def get(interfacename):
             dict["packet-loss"] = 0
     except requests.exceptions.RequestException as e:
         print(e)
-        return "0"
+        dict["network-delay"] = 0
+        dict["packet-loss"] = 0
+        return ["UP",dict]
 
     payload = {'data': '{"op": "show", "path": ["interfaces","ethernet","' + interface + '"]}',
                'key': 'vyosapikey'
                }
     headers = {}
     try:
+
         response = requests.request("POST", interfacestatusurl, headers=headers, data=payload, verify=False)
         print(f'{response.status_code} - interface status {interface}')
         if (response.status_code == 200):
@@ -121,15 +126,15 @@ def get(interfacename):
 
             if finds.find(",UP") == -1:
                 print(f"{interface} is DOWN -- with traffic-parameters {dict}")
-                return ["DOWN", dict]
+                return ["DOWN",dict]
             else:
                 print(f"{interface} is UP -- with traffic-parameters {dict}")
-                return ["UP", dict]
+                return ["UP",dict]
         else:
-            return "0"
+            return ["UP",dict]
     except requests.exceptions.RequestException as e:
         print(e)
-        return "0"
+        return ["UP",dict]
 
 
 @app.route('/traffic-policy', methods=["POST"])
